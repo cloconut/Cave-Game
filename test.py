@@ -1,13 +1,26 @@
-from character import Character
-from character import Enemy
-from item import Item
 
-# asriel = Enemy("Asriel Dreemurr", "The absolute GOD of hyperdeath.")
-# asriel.set_conversation("I don't need ANYONE!")
-# asriel.set_weakness("Mercy")
+# - - - - - - - x - - - - - - - #
 
-# asriel.describe()
-# asriel.talk()
+from cave import Cave
+from character import Character, Enemy, Friend, Merchant
+from item import Item, Defense, Offense, Spell, DefSpell, OffSpell
+
+# - - - - - - - TEST OBJECTS - - - - - - - #
+
+# CAVE
+
+# ENEMY
+
+def enemytest():
+    asriel = Enemy("Asriel Dreemurr", "The absolute GOD of hyperdeath.", 100,)
+    asriel.set_weakness("Mercy")
+
+
+
+enemytest()
+
+
+
 
 # print("What will you fight with?")
 # combat_weapon = input()
@@ -17,11 +30,11 @@ from item import Item
 
 # realknife.describe()
 
-bag = ["Mercy", "knife"]
+# bag = ["Mercy", "knife"]
 
-if Item in bag == None:
-    print("You have no items in your possession.")
-else:
-    print("You possess the following items:")
-    for Item in bag:
-        print(Item)
+# if Item in bag == None:
+#     print("You have no items in your possession.")
+# else:
+#     print("You possess the following items:")
+#     for Item in bag:
+#         print(Item)

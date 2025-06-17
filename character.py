@@ -41,9 +41,8 @@ class Character():
 # - - - - - - - ENEMY SUBCLASS - - - - - - - #
 
 class Enemy(Character):
-    def __init__(self, char_name, char_description, char_health, en_weak):
+    def __init__(self, char_name, char_description, char_health):
         super().__init__(self, char_name, char_description, char_health)
-        self.weakness = en_weak
         self.exhaust = 0
 
 # - - - - - - - NOTES - - - - - - - #
