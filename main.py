@@ -76,43 +76,36 @@ rave.link_cave(keep, 'north')
 
 # Gribsy
 gribsy = Enemy("Gribsy", "Keeper of the Caves. His IQ is beyond your comprehension.")
-gribsy.set_conversation("You're wasting my time AND yours, my dear ignoramus.")
-gribsy.set_weakness("Ignorance")
+gribsy.set_defconvo("You're wasting my time AND yours, my dear ignoramus.")
 hollow.set_character(gribsy)
 
 # Marmite and Kibbie (Crusty Cavern)
 marmite = Enemy("Marmite", "Curious dust kitty.")
-marmite.set_conversation("Marm.")
-marmite.set_weakness("Crust")
+marmite.set_defconvo("Marm.")
 cavern.set_character(marmite)
 
 kibbie = Enemy("Kibbie", "Skittish dust kitty")
-kibbie.set_conversation("Kibs")
-kibbie.set_weakness("Dust")
+kibbie.set_defconvo("Kibs")
 cavern.set_character(kibbie)
 
 # Humonculus (Dusty Dungeon)
 humonculus = Enemy("Humonculus", "A giant beastie made of stone")
-humonculus.set_conversation("Do you WANT your windshield bricked?")
-humonculus.set_weakness("Feather")
+humonculus.set_defconvo("Do you WANT your windshield bricked?")
 dungeon.set_character(humonculus)
 
 # Gangalang (Tyrannical Tunnel)
 gangalang = Enemy("Gangalang", "Cause 3 enemies is the charm")
-gangalang.set_conversation("Stop right there! Right there? RIGHT THERE!!")
-gangalang.set_weakness("Marbles")
+gangalang.set_defconvo("Stop right there! Right there? RIGHT THERE!!")
 tunnel.set_character(gangalang)
 
 # Boteko (Freaky Fissure)
 boteko = Enemy("Boteko", "This guy is kind of Jank.")
-boteko.set_conversation("Heart deedee, with a baby")
-boteko.set_weakness("Burning wood")
+boteko.set_defconvo("Heart deedee, with a baby")
 fissure.set_character(boteko)
 
 # Krakeluss - (Kraken's Keep)
 krakeluss = Enemy("Krakeluss", "Hasn't seen the light of day in eons. Don't look into his eyes")
-krakeluss.set_conversation("This is the end, traveller.")
-krakeluss.set_weakness("Light")
+krakeluss.set_defconvo("This is the end, traveller.")
 keep.set_character(krakeluss)
 
 # - - - - - - - FRIENDS - - - - - - - #
