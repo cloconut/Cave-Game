@@ -1,51 +1,43 @@
-# - - - - - - - NOTES - - - - - - - #
-
-#   There will be 5 item subclasses: 
-# Defense, offense, spells (defensive and offensive), food
-# COMMON ATTRIBUTES
-# - Name or label
-# - Description
-# DEFENSE
-# - How much damage it will reflect
-# OFFENSE
-# - How much damage it deals
-# SPELLS DEFENSIVE
-# - If it heals player health
-# - Long lasting effect
-# SPELLS OFFENSIVE
-# - How much damage dealt to opponent health
-# - Long lasting effect
-# FOOD
-# - Amount of health regained
 
 # - - - - - - - ITEM SUPERCLASS - - - - - - - #
 
 class Item():
     def __init__(self, item_name, item_desc):
-        self.name = item_name.upper()
+        self.name = item_name
         self.description = item_desc
 
-# - - - - - - - SPELL SUPERCLASS - - - - - - - #
+# - - - - - - - NOTES - - - - - - - #
 
-class Spell():
-    def __init__(self, spell_name, spell_desc, spell_effect):
-        self.name = spell_name.upper()
-        self.description = spell_desc
-        self.effect = spell_effect
+# - Name or label
+# - Description
 
-# - - - - - - - DEFENSE - - - - - - - #
+# - - - - - - - x - - - - - - - #
 
-class Defense(Item):
+# - - - - - - - DEFENCE - - - - - - - #
+
+class Defence(Item):
     def __init__(self, item_name, item_desc, deflect_count):
         super().__init__(item_name, item_desc)
         self.deflect = deflect_count
 
-# - - - - - - - OFFENSE - - - - - - - #
+# - - - - - - - NOTES - - - - - - - #
 
-class Offense(Item):
+# - How much damage it will reflect
+
+# - - - - - - - DEFENCE METHODS - - - - - - - #
+
+# - - - - - - - OFFENCE - - - - - - - #
+
+class Offence(Item):
     def __init__(self, item_name, item_desc, damage_count):
         super().__init__(item_name, item_desc)
         self.damage = damage_count
+
+# - - - - - - - NOTES - - - - - - - #
+
+# - How much damage it deals
+
+# - - - - - - - x - - - - - - - #
 
 # - - - - - - - FOOD - - - - - - - #
 
@@ -54,19 +46,11 @@ class Food(Item):
         super().__init__(item_name, item_desc)
         self.uphealth = uphealth_count
 
-# - - - - - - - DEFENSIVE SPELLS - - - - - - - #
+# - - - - - - - NOTES - - - - - - - #
 
-class DefSpell(Spell):
-    def __init__(self, spell_name, spell_desc, spell_effect, deflect_count):
-        self.deflect = deflect_count
+# - Amount of health regained
 
-# - - - - - - - OFFENSIVE SPELLS - - - - - - - #
-
-class OffSpell(Spell):
-    def __init__(self, spell_name, spell_desc, spell_effect, damage_count):
-        self.damage = damage_count
-
-# - - - - - - - x - - - - - - - #
+# - - - - - - - METHODS - - - - - - - #
 
 
 
@@ -74,3 +58,6 @@ class OffSpell(Spell):
     def describe(self):
         print("You stumbled across a" + self.name)
         print(self.description)
+
+
+# er43fgtr - (Carmen)
