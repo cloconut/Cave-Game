@@ -139,14 +139,16 @@ while dead == False:
     print('\n')
     current_cave.get_details()
     inhabitant = current_cave.get_character()
-    thing = current_cave.get_item()
+    items = current_cave.get_item()
     command = input('> ')
 
-    if thing is not None:
-        thing.describe()
+    if items is not None:
+        items.describe()
 
     if inhabitant is not None:
         inhabitant.describe()
+
+# - - - - - - - COMMANDS - - - - - - - #
 
     if command == "talk":
         inhabitant.talk()
@@ -189,11 +191,13 @@ while dead == False:
             print("There's nothing to take.")'
             
     elif command == "bag":
-        if item in bag[] = None:
-            print("You have no items in your possession.")
+        bag = []
+        if Item in bag == None:
+         print("You have no items in your possession.")
         else:
-            for item in bag[]:
-                print(item)
+            print("You possess the following items:")
+            for Item in bag:
+                print(Item)
 
     current_cave = current_cave.move(command)
 
