@@ -7,7 +7,7 @@ from item import Item, Defence, Offence
 
 
 asriel = Enemy("ASRIEL DREEMURR", "The absolute GOD of hyperdeath.", 100, 100)
-asriel.set_defconvo("I don't need ANYONE!!")
+asriel.set_convo("I don't need ANYONE!!")
 # asriel.describe()
 # asriel.get_name()
 # asriel.get_health()

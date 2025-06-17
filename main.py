@@ -12,34 +12,34 @@ from item import Item
 
 # Hollow
 hollow = Cave('Harrowing Hollow')
-hollow.set_description('Its so empty in here...')
+hollow.set_note('Its so empty in here...')
 # Cavern
 cavern = Cave('Crusty Cavern')
-cavern.set_description('A strangely crusty cave. The walls are... shedding?')
+cavern.set_note('A strangely crusty cave. The walls are... shedding?')
 # Grotto
 grotto = Cave('Grotty Grotto')
-grotto.set_description('Filthy, grimey, grotty. Untouched since 1812.')
+grotto.set_note('Filthy, grimey, grotty. Untouched since 1812.')
 # Dungeon
 dungeon = Cave('Dusty Dungeon')
-dungeon.set_description('Theres a rustling behind the dust... maybe a splashing?')
+dungeon.set_note('Theres a rustling behind the dust... maybe a splashing?')
 # Lake
 lake = Cave('Lukewarm Lake')
-lake.set_description('A calm and tranquil lake, why dont I go for a dip?')
+lake.set_note('A calm and tranquil lake, why dont I go for a dip?')
 # Mines
 mines = Cave('Merchants Mines')
-mines.set_description('How neat. A one stop shop for all necessities.')
+mines.set_note('How neat. A one stop shop for all necessities.')
 # Keep
 keep = Cave('The Krakens Keep')
-keep.set_description('Theres something in the water.')
+keep.set_note('Theres something in the water.')
 # Fissure
 fissure = Cave('Freaky Fissure')
-fissure.set_description('Its said to be haunted in here, bah?')
+fissure.set_note('Its said to be haunted in here, bah?')
 # Tunnel
 tunnel = Cave('Tyrannical Tunnel')
-tunnel.set_description('Its so cold...')
+tunnel.set_note('Its so cold...')
 # Rave
 rave = Cave('The Cave Rave')
-rave.set_description('Oh party party yah')
+rave.set_note('Oh party party yah')
 
 # - - - - - - - CAVE LINKS - - - - - - - #
 
@@ -75,49 +75,49 @@ rave.link_cave(keep, 'north')
 # - - - - - - - ENEMIES - - - - - - - #
 
 # Gribsy
-gribsy = Enemy("Gribsy", "Keeper of the Caves. His IQ is beyond your comprehension.")
-gribsy.set_defconvo("You're wasting my time AND yours, my dear ignoramus.")
+gribsy = Enemy("Gribsy", "Keeper of the Caves. His IQ is beyond your comprehension.", 1, 1)
+gribsy.set_convo("You're wasting my time AND yours, my dear ignoramus.")
 hollow.set_character(gribsy)
 
 # Marmite and Kibbie (Crusty Cavern)
-marmite = Enemy("Marmite", "Curious dust kitty.")
-marmite.set_defconvo("Marm.")
+marmite = Enemy("Marmite", "Curious dust kitty.", 1, 1)
+marmite.set_convo("Marm.")
 cavern.set_character(marmite)
 
-kibbie = Enemy("Kibbie", "Skittish dust kitty")
-kibbie.set_defconvo("Kibs")
+kibbie = Enemy("Kibbie", "Skittish dust kitty", 1, 1)
+kibbie.set_convo("Kibs")
 cavern.set_character(kibbie)
 
 # Humonculus (Dusty Dungeon)
-humonculus = Enemy("Humonculus", "A giant beastie made of stone")
-humonculus.set_defconvo("Do you WANT your windshield bricked?")
+humonculus = Enemy("Humonculus", "A giant beastie made of stone", 1, 1)
+humonculus.set_convo("Do you WANT your windshield bricked?")
 dungeon.set_character(humonculus)
 
 # Gangalang (Tyrannical Tunnel)
-gangalang = Enemy("Gangalang", "Cause 3 enemies is the charm")
-gangalang.set_defconvo("Stop right there! Right there? RIGHT THERE!!")
+gangalang = Enemy("Gangalang", "Cause 3 enemies is the charm", 1, 1)
+gangalang.set_convo("Stop right there! Right there? RIGHT THERE!!")
 tunnel.set_character(gangalang)
 
 # Boteko (Freaky Fissure)
-boteko = Enemy("Boteko", "This guy is kind of Jank.")
-boteko.set_defconvo("Heart deedee, with a baby")
+boteko = Enemy("Boteko", "This guy is kind of Jank.", 1, 1)
+boteko.set_convo("Heart deedee, with a baby")
 fissure.set_character(boteko)
 
 # Krakeluss - (Kraken's Keep)
-krakeluss = Enemy("Krakeluss", "Hasn't seen the light of day in eons. Don't look into his eyes")
-krakeluss.set_defconvo("This is the end, traveller.")
+krakeluss = Enemy("Krakeluss", "Hasn't seen the light of day in eons. Don't look into his eyes", 1, 1)
+krakeluss.set_convo("This is the end, traveller.")
 keep.set_character(krakeluss)
 
 # - - - - - - - FRIENDS - - - - - - - #
 
-jemmie = Friend("Jemmie", "Temmie cousin")
-jemmie.set_conversation("Need any help?")
-cavern.set_character(jemmie)
+# jemmie = Friend("Jemmie", "Temmie cousin")
+# jemmie.set_convo("Need any help?")
+# cavern.set_character(jemmie)
 
 # - - - - - - - x - - - - - - - #
 
-blankitem = Item("Test Item", "For test purposes")
-hollow.set_item(blankitem)
+# blankitem = Item("Test Item", "For test purposes")
+# hollow.set_item(blankitem)
 
 # - - - - - - - DEFAULT STATS - - - - - - - #
 
@@ -129,69 +129,68 @@ dead = False
 # - - - - - - - LOOP - - - - - - - #
 
 while dead == False:
+
     print('\n')
-    current_cave.get_details()
-    inhabitant = current_cave.get_character()
+   # current_cave.get_details()
+
+    character = current_cave.get_character()
+
     items = current_cave.get_item()
+
     command = input('> ')
-
-    if items is not None:
-        items.describe()
-
-    if inhabitant is not None:
-        inhabitant.describe()
 
 # - - - - - - - COMMANDS - - - - - - - #
 
     if command == "talk":
-        inhabitant.talk()
+        if character is not None:
+            character.get_convo()
 
-    elif command == "fight":
-        if isinstance(inhabitant, Enemy):
-            print("Choose your weaponry ")
-            weapon = input()
+#     elif command == "fight":
+#         if isinstance(inhabitant, Enemy):
+#             print("Choose your weaponry ")
+#             weapon = input()
 
-            if weapon in bag:
-                print("You summon the weapon from your bag.")
-            else:
-                print("You don't have a " + weapon)
+#             if weapon in bag:
+#                 print("You summon the weapon from your bag.")
+#             else:
+#                 print("You don't have a " + weapon)
                 
-            if inhabitant.fight(weapon) == True:
-                print("You have defeated the enemy.")
-                current_room.set_character(None)
-            else:
-                print("You have been defeated by the enemy")
-                print("Your journey has come to an end")
-                dead = True
-        else:
-            print("There is no enemy here to defeat")
+#             if inhabitant.fight(weapon) == True:
+#                 print("You have defeated the enemy.")
+#                 current_room.set_character(None)
+#             else:
+#                 print("You have been defeated by the enemy")
+#                 print("Your journey has come to an end")
+#                 dead = True
+#         else:
+#             print("There is no enemy here to defeat")
 
-    elif command == "pat":
-        if inhabitant is not None:
-            if isinstance(inhabitant, Enemy):
-                print("You couldn't get close enough to pat" + inhabitant.name())
-            else:
-                inhabitant.pat()
-        else:
-            print("You tenderly caress absolutely nothing.")
+#     elif command == "pat":
+#         if inhabitant is not None:
+#             if isinstance(inhabitant, Enemy):
+#                 print("You couldn't get close enough to pat" + inhabitant.name())
+#             else:
+#                 inhabitant.pat()
+#         else:
+#             print("You tenderly caress absolutely nothing.")
 
-    elif command == "take":
-        if thing is not None:
-            print("You put the " + thing.name() + "in your bag")
-            bag.append(item.name())
-            current_room.set_item(None)
-        else:
-            print("There's nothing to take.")'
+#     elif command == "take":
+#         if thing is not None:
+#             print("You put the " + thing.name() + "in your bag")
+#             bag.append(item.name())
+#             current_room.set_item(None)
+#         else:
+#             print("There's nothing to take.")'
             
-    elif command == "bag":
-        bag = []
-        if Item in bag == None:
-         print("You have no items in your possession.")
-        else:
-            print("You possess the following items:")
-            for Item in bag:
-                print(Item)
+#     elif command == "bag":
+#         bag = []
+#         if Item in bag == None:
+#          print("You have no items in your possession.")
+#         else:
+#             print("You possess the following items:")
+#             for Item in bag:
+#                 print(Item)
 
-    current_cave = current_cave.move(command)
+#     current_cave = current_cave.move(command)
 
-# - - - - - - - x - - - - - - - #
+# # - - - - - - - x - - - - - - - #

@@ -29,8 +29,11 @@ class Character():
     
 #   DEFAULT CONVERSATION
 
-    def set_defconvo(self, def_convo):
-        self.defconvo = def_convo
+    def set_convo(self, convo):
+        self.convo = convo
+
+    def get_convo(self):
+        print(self.convo)
 
 # - - - - - - - ENEMY SUBCLASS - - - - - - - #
 
