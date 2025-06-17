@@ -12,7 +12,7 @@ from item import Item
 
 # Hollow
 hollow = Cave('Harrowing Hollow')
-hollow.set_note('Its so empty in here...')
+hollow.note = "Its so empty in here..."
 # Cavern
 cavern = Cave('Crusty Cavern')
 cavern.set_note('A strangely crusty cave. The walls are... shedding?')
@@ -119,31 +119,61 @@ keep.set_character(krakeluss)
 # blankitem = Item("Test Item", "For test purposes")
 # hollow.set_item(blankitem)
 
-# - - - - - - - DEFAULT STATS - - - - - - - #
+# - - - - - - - x - - - - - - - #
+
+
 
 bag = []
-
 current_cave = hollow
 dead = False
 
-# - - - - - - - LOOP - - - - - - - #
-
 while dead == False:
+    print("\n")
+    print("As you regain conciousness, you realise you have fallen into an unknown cave.")
+    print("\n")
+    print("There is a torn journal on the ground, will you take it?")
+    print(" > Yes")
+    print(" > No")
+    print("\n")
+    command = input('> ')
+    if command == 'yes':
+        print("You read the first entry...")
+        print("\n")
+        print("'"+ current_cave.note + "'")
+        print("\n")
+    elif command == 'no':
+        print("\n")
+        print('Not a wise choice, but ok.')
+        print("\n")
 
-    print('\n')
-   # current_cave.get_details()
 
     character = current_cave.get_character()
 
     items = current_cave.get_item()
 
-    command = input('> ')
+
 
 # - - - - - - - COMMANDS - - - - - - - #
 
-    if command == "talk":
+    action = input('> ')
+
+    if action == "talk":
         if character is not None:
             character.get_convo()
+
+# - x - #
+
+if dead == True:
+    print("\n")
+    print("\n")
+    print("\n")
+    print("\n")
+    print("\n")
+    print("You have perished.")
+    print("\n")
+    print("\n")
+    print("\n")
+    print("\n")
 
 #     elif command == "fight":
 #         if isinstance(inhabitant, Enemy):
