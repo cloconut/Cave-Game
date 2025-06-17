@@ -17,10 +17,11 @@ from item import Item
 
 # realknife.describe()
 
-bag[] = ["Mercy", "knife"]
+bag = ["Mercy", "knife"]
 
-if item in bag[] = None:
+if Item in bag == None:
     print("You have no items in your possession.")
 else:
-    for item in bag[]:
-        print(item)
+    print("You possess the following items:")
+    for Item in bag:
+        print(Item)
